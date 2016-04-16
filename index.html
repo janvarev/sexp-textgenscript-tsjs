@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>TextGen Script JS Text Generator</title>
+    <link rel="stylesheet" href="reset.css" type="text/css" />
+    <link rel="stylesheet" href="skin.css" type="text/css" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    
+    <script src="SExpReader.js"></script>
+    <script src="SExpTextGenerator.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header clearfix">
+            <div class="logo">TextGen Script JS Text Generator</div>
+        </header>
+
+        <div class="info">
+            <article class="hero clearfix">
+                
+                <div class="col_33">
+                    <h2><i>TextGen Script (S-expression):</i></h2>
+                    <textarea id="txtFrom" style="width:95%" rows="15">(
+    "a"
+    (#r "b" "c")
+    (#r "d" "e")
+)</textarea><br /><br />
+                    <button id="btnTo" class="button">Generate text!</button> <br /><br />
+                    <b>More features:</b><br />
+                    <button id="btnEstUnwrap" class="button">Estimate number of texts</button> <br />
+                    <button id="btnUnwrap" class="button">Generate ALL texts</button> <br />
+                    <br />
+                </div>
+                <div class="col_66">
+                    <h2><i>Generated text:</i></h2>
+                    <p id="content" ></p>
+                </div>
+                
+            </article>
+            <article class="article clearfix">
+                
+            </article>
+        </div>
+     </div>
+</body>
+</html>
