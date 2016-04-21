@@ -1,22 +1,26 @@
-/// <reference path="SExpReader.ts" />
-/// <reference path="SExpTextGenerator.ts" />
 window.onload = function () {
     var el = document.getElementById('content');
     var sread = new SExpReader();
     var sgen = new SExpTextGenerator();
     var txtFrom = document.getElementById("txtFrom");
     var txtTo = document.getElementById("txtTo");
+    function genTextNumTimes(num) {
+        var ar = sread.parseSexp(txtFrom.value, true);
+        var ar2 = [];
+        for (var i = 0; i < num; i++) {
+            ar2.push(sgen.tgenInternal(ar, new SExpTGenEnvironment()));
+        }
+        el.innerHTML = ar2.join("<br />");
+    }
     var btn1 = document.getElementById("btnTo");
     btn1.onclick = function () {
-        var ar = sread.parseSexp(txtFrom.value, true);
-        //var ar2 = sgen.tgenInternalDemo(ar, new SExpTGenEnvironment());
-        var ar2 = sgen.tgenInternal(ar, new SExpTGenEnvironment());
-        /*
-        var o: Object = {};
-        o["__#r"] = "__#r2";
-        var ar2 = sgen.sexpApplyVars(ar, o);
-        */
-        el.innerHTML = ar2;
+        genTextNumTimes(1);
+    };
+    document.getElementById("btn20").onclick = function () {
+        genTextNumTimes(20);
+    };
+    document.getElementById("btn100").onclick = function () {
+        genTextNumTimes(100);
     };
     var btn2 = document.getElementById("btnEstUnwrap");
     btn2.onclick = function () {
@@ -48,4 +52,3 @@ window.onload = function () {
         }
     };
 };
-//# sourceMappingURL=app.js.map
